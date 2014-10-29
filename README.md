@@ -7,7 +7,7 @@ Command line client towards the HarMannenFaltNed.no API.
 To install this tool, simply enter:
 
 ```
-go get https://github.com/zmalltalker/harmannenfaltned
+go get github.com/zmalltalker/harmannenfaltned
 ```
 
 ## Running the tool
