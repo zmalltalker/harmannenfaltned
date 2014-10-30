@@ -32,26 +32,27 @@ func getResponse() (error, bool) {
 		return errors.New("API error"), false
 	}
 }
+
+func displayStatus(quiet *bool, message string){
+	if !*quiet {
+		fmt.Println(message)
+	}
+}
+
 func main(){
 	runQuiet := flag.Bool("q", false, "Run quietly")
 	flag.Parse()
 	err, v := getResponse()
 	if err == nil {
 		if v {
-			if !*runQuiet {
-				fmt.Println("Ja")
-			}
+			displayStatus(runQuiet, "Ja")
 			os.Exit(1)
 		} else {
-			if !*runQuiet {
-				fmt.Println("Nei")
-			}
+			displayStatus(runQuiet, "Ja")
 			os.Exit(0)
 		}
 	} else {
-		if !*runQuiet {
-			fmt.Printf("Error: %v\n", err)
-		}
+		displayStatus(runQuiet, "Error")
 		os.Exit(2)
 	}
 }
